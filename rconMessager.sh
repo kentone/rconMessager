@@ -1,6 +1,4 @@
 #!/bin/bash
-#File where the adverts are
-
 #Put here your home dir (/home/username)
 export HOME=
 #This file will contain the adverts that will appear on your server (ex. /home/username/rconMessager/Adverts.txt)
