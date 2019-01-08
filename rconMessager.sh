@@ -21,6 +21,8 @@ COMMAND="mcrcon -H $HOST -P $PORT -p $PASSWORD"
 #If your server does not allow run custom scripts you can run this script on your home and download the adverts file from the game server, so all admins can edit it.
 #The script will download the file and send the lines on it over rcon
 ##################################
+#Put a 1 to enable FTP fetching, put a 0 to disable
+ENABLEFTP=0
 #FTP user
 FTPUSER=
 #FTP password
@@ -39,7 +41,10 @@ i=1
 while true
 do
 	#Retrieves the Adverts.txt so we can change it from the server
+	if [ $ENABLEFTP = 1 ]
+	then
 	wget --timeout 10 -t 3 ftp://"$FTPUSER":"$FTPPASS"@"$HOST":"FTPPORT""$FTPFILE" -O "$FILE"
+	fi
 	#refreshes the number of lines on every main loop iteration.
 	FILELINES=$(wc -l < $FILE)
 	#Counter loop, sends every line of the captions.txt one by one to the server via rcon
