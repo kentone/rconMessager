@@ -1,5 +1,5 @@
 #!/bin/bash
-#File where the captions are
+#File where the adverts are
 
 #Put here your home dir (/home/username)
 export HOME=
@@ -31,7 +31,7 @@ FTPPASS=
 FTPPORT=
 #This is the file that will be downloaded from the FTP server (ex. /directory1/directory2/Adverts.txt)
 FTPFILE=
-#Time between captions (In seconds)
+#Time between adverts (In seconds)
 INTERVAL=90
 #Initial value for counter
 i=1
@@ -47,7 +47,7 @@ do
 	fi
 	#refreshes the number of lines on every main loop iteration.
 	FILELINES=$(wc -l < $FILE)
-	#Counter loop, sends every line of the captions.txt one by one to the server via rcon
+	#Counter loop, sends every line of the Adverts.txt one by one to the server via rcon
 	until [ $i -gt $FILELINES ]
 	do
 		#I use cut with the counter to get every line one by one on every iteration, until it reaches maximum number of lines and resets the counter to the first one
